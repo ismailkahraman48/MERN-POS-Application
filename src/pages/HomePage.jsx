@@ -3,7 +3,7 @@ import Categories from '../Components/categories/Categories'
 import Products from '../Components/products/Products';
 import CartTotals from '../Components/cart/CartTotals';
 
-export const HomePage = () => {
+const HomePage = () => {
     return (
         <>
             <Header />
@@ -21,3 +21,4 @@ export const HomePage = () => {
         </>
     )
 }
+export default HomePage;
