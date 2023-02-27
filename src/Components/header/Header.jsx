@@ -4,17 +4,18 @@ import {
     ShoppingCartOutlined,
     UserOutlined,
     BarChartOutlined,
-    LogoutOutlined
+    LogoutOutlined,
+    FileTextOutlined
 } from '@ant-design/icons';
-import {Badge, Input } from 'antd';
-import {Link} from 'react-router-dom'
+import { Badge, Input } from 'antd';
+import { Link } from 'react-router-dom'
 
 function header() {
     return (
         <div className="border-b mb-5">
             <header className='py-4 px-6 flex justify-between gap-8'>
                 <div className='logo'>
-                    <a href='/'></a>
+                    <Link to={'/'}></Link>
                     <h2 className='text-2xl font-bold md:text-4xl'>LOGO</h2>
                 </div>
                 <div className="header-search flex-1 flex justify-center">
@@ -39,16 +40,21 @@ function header() {
                             <span className='md:text-xl text-[10px]'>Sepet</span>
                         </Link>
                     </Badge>
+                    {/* Invoice */}
+                        <Link to={"/invoice"} className='menu-link flex flex-col hover:text-[#40a9ff] transition-all'>
+                            <FileTextOutlined />
+                            <span className='md:text-xl text-[10px]'>Faturalar</span>
+                        </Link>
                     {/* CUSTOMER */}
-                    <a href='{"/"}' className='menu-link flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/customers"} className='menu-link flex flex-col hover:text-[#40a9ff] transition-all'>
                         <UserOutlined />
                         <span className='md:text-xl text-[10px]'>Müşteriler</span>
-                    </a>
+                    </Link>
                     {/* STATS */}
-                    <a href='{"/"}' className='menu-link flex flex-col hover:text-[#40a9ff] transition-all'>
+                    <Link to={"/statistics"} className='menu-link flex flex-col hover:text-[#40a9ff] transition-all'>
                         <BarChartOutlined />
                         <span className='md:text-xl text-[10px]'>İstatiskler</span>
-                    </a>
+                    </Link>
                     {/* EXIT */}
                     <a href='{"/"}' className='menu-link flex flex-col hover:text-[#40a9ff] transition-all'>
                         <LogoutOutlined />

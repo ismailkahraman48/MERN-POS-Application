@@ -12,7 +12,7 @@ const Invoice = ({ isModalOpen, setIsModalOpen }) => {
     return (
         <>
             <Modal
-                title="Basic Modal"
+                title="Sipariş Oluştur"
                 open={isModalOpen}
                 footer={false}
                 onCancel={() => setIsModalOpen(false)}
