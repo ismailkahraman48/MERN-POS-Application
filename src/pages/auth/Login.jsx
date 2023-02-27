@@ -1,27 +1,17 @@
-import { Button, Form, Input, Carousel } from 'antd'
+import { Button, Form, Input, Carousel, Checkbox } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import AuthCarousel from '../../Components/auth/AuthCaroulsel'
 
 
-const Register = () => {
+const Login = () => {
     return (
         <div className='h-screen' >
             <div className="flex justify-between h-full">
                 <div className="left-side flex flex-col h-full justify-center xl:px-20 px-10 w-full relative ">
                     <h1 className='text-5xl font-bold text-center mb-5'>LOGO</h1>
                     <Form layout='vertical'>
-                        <Form.Item
-                            label="Kullanıcı Adı"
-                            name={"username"}
-                            rules={[
-                                {
-                                    required: true,
-                                    message: "Kullanıcı adı alanı boş bırakılamaz!"
-                                }
-                            ]}>
-                            <Input />
-                        </Form.Item>
+
                         <Form.Item
                             label="E-mail"
                             name={"email"}
@@ -44,33 +34,20 @@ const Register = () => {
                             ]}>
                             <Input.Password />
                         </Form.Item>
-                        <Form.Item
-                            label="Şifre Tekrar"
-                            name={"confirm"}
-                            dependencies={['password']}
-                            rules={[
-                                {
-                                    required: true,
-                                    message: "Şifre tekrar alanı boş bırakılamaz!"
-                                },
-                                ({ getFieldValue }) => ({
-                                    validator(_, value) {
-                                        if (!value || getFieldValue('password') === value) {
-                                            return Promise.resolve();
-                                        }
-                                        return Promise.reject(new Error('The two passwords that you entered do not match!'));
-                                    },
-                                })
-                            ]}>
-                            <Input.Password />
-                        </Form.Item>
                         <Form.Item>
-                            <Button className='w-full mt-5' type='primary' size='large' htmlType='submit'>Kaydol</Button>
+                            <div className='flex justify-between items-center p-1'>
+                                <Checkbox>Beni hatırla</Checkbox>
+                                <Link className='text-red-500' to={""}>Şifremi Unuttum</Link>
+                            </div>
+                        </Form.Item>
+
+                        <Form.Item>
+                            <Button className='w-full mt-5' type='primary' size='large' htmlType='submit'>Giriş Yap</Button>
                         </Form.Item>
                     </Form>
                     <div className='flex flex-row justify-center absolute bottom-0 left-0 w-full mb-5'>
-                        <span>Bir hesabınız var mı?&nbsp;</span>
-                        <Link className='text-blue-700' to={"/login"}>Şimdi Giriş yap</Link>
+                        <span>Bir hesabınız yok mu?&nbsp;</span>
+                        <Link className='text-blue-700' to={"/register"}>Şimdi üye ol</Link>
                     </div>
                 </div>
                 <div className="xl:w-4/6 lg:w-3/5 md:w-1/2 md:flex hidden bg-[#6c63ff] h-full ">
@@ -109,4 +86,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default Login
